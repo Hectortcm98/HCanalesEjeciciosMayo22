@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Boton";
+}
+
+<h2>Generador de Botones</h2>
+
+<style>
+    .container {
+        margin-top: 20px;
+    }
+
+    .button {
+        margin: 5px;
+        padding: 8px; /* Reducir el espacio dentro del botón */
+        font-size: 12px; /* Tamaño del texto del botón */
+    }
+
+        .button span {
+            display: block; /* Hace que el número aparezca en una nueva línea */
+            font-size: 10px; /* Tamaño del número del botón */
+        }
+</style>
+
+<div class="container">
+    <input type="number" id="numero">
+    <button onclick="generarBotones()">Generar Botones</button>
+</div>
+
+<div id="contenedorBotones" class="container"></div>
+
+<div class="container">
+    coordenadas
+    <input type="text" id="coordenadas" readonly>
+</div>
+
+<script>
+    function generarBotones() {
+        // Obtener el número ingresado
+        var numero = parseInt(document.getElementById('numero').value);
+
+        // Obtener el contenedor de botones
+        var contenedor = document.getElementById('contenedorBotones');
+
+        // Limpiar el contenedor antes de agregar nuevos botones
+        contenedor.innerHTML = '';
+
+        // Inicializar el contador para enumerar los botones
+        var contador = 1;
+
+        // Crear botones según el número ingresado
+        Array(numero).fill().forEach(function (_, fila) {
+            Array(numero).fill().forEach(function (_, columna) {
+                var boton = document.createElement('button');
+                boton.className = 'button';
+                var spanTexto = document.createElement('span');
+                spanTexto.textContent = 'Botón';
+                var spanNumero = document.createElement('span');
+                spanNumero.textContent = contador;
+                boton.appendChild(spanTexto);
+                boton.appendChild(spanNumero);
+                boton.addEventListener('click', function () {
+                    mostrarCoordenadas(fila + 1, columna + 1);
+                });
+                contenedor.appendChild(boton);
+                contador++;
+            });
+            contenedor.appendChild(document.createElement('br')); // Agregar salto de línea después de cada fila
+        });
+    }
+
+    function mostrarCoordenadas(fila, columna) {
+        var coordenadas = document.getElementById('coordenadas');
+        coordenadas.value = 'Fila: ' + fila + ', Columna: ' + columna;
+    }
+</script>

@@ -1,0 +1,504 @@
+﻿    @{
+        ViewData["Title"] = "Vista02";
+    }
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/vector-premium/fondo-blanco-patron-ondulado-fondo-gris-claro_664601-3302.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+    </style>
+
+        <style>
+            .container {
+                display: flex;
+                justify-content: flex-start;
+                /* Alinea el contenedor a la izquierda */
+                padding: 0px 20px 20px 160px;
+                /* Ajusta el padding izquierdo */
+            }
+
+            .form-container {
+                display: flex;
+                flex-wrap: wrap;
+                max-width: 600px;
+                /* Ancho máximo del formulario */
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .form-group {
+                flex: 1 1 50%;
+                /* Cada grupo de formulario ocupa el 50% del ancho del contenedor */
+                padding: 10px;
+                box-sizing: border-box;
+                position: relative;
+                /* Establece posición relativa para los elementos internos */
+            }
+
+                .form-group.half-width {
+                    flex: 1 1 25%;
+                    /* Los grupos de formulario de media ancho ocupan el 25% del ancho */
+                }
+
+                .form-group.full-width {
+                    flex: 1 1 100%;
+                    /* Los grupos de formulario de ancho completo ocupan el 100% del ancho */
+                }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            input,
+            select {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+
+            .small-input {
+                width: calc(33.33% - 5px);
+                /* Tamaño aproximado para que quepan tres campos en una fila */
+                margin-right: 5px;
+            }
+
+            .date-container {
+                display: flex;
+            }
+
+            .form-group.full-width input[type="submit"] {
+                border-radius: 20px;
+                /* Hace que el botón tenga una apariencia circular */
+                width: 160px;
+                /* Ajusta el ancho del botón */
+                height: 35px;
+                /* Ajusta la altura del botón */
+                background-color: #2b3035;
+                /* Color de fondo del botón */
+                color: white;
+                /* Color del texto del botón */
+                font-size: 16px;
+                /* Tamaño de fuente del botón */
+                border: none;
+                /* Quita el borde del botón */
+                cursor: pointer;
+                /* Cambia el cursor al pasar sobre el botón */
+            }
+
+            /* Estilos para el texto encima del formulario */
+            .form-header {
+                width: 50%;
+                /* Asegura que el texto abarque todo el ancho */
+                text-align: center;
+                /* Centra el texto horizontalmente */
+                margin-bottom: 20px;
+                /* Agrega un espacio entre el texto y el formulario */
+                font-size: 24px;
+                /* Tamaño de fuente del texto */
+                color: #333;
+                /* Color del texto */
+                margin-top: 10px;
+                /* Mueve el texto hacia arriba */
+            }
+
+        .round-button {
+            background-color: #B0C4DE; /* Color azul grisáceo */
+            color: white;
+            border: none;
+            border-radius: 15px; /* Valor de border-radius para esquinas redondeadas */
+            width: 100px;
+            height: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            transition: background-color 0.3s;
+        }
+
+            .round-button:hover {
+                background-color: #778899; /* Cambia el color al pasar el mouse */
+            }
+
+        ::placeholder {
+            color: blue;
+        }
+
+        
+
+        <style>
+            /* Estilos personalizados */
+            body {
+                margin: 0; /* Elimina el margen predeterminado del body */
+                padding: 0; /* Elimina el relleno predeterminado del body */
+                overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+            }
+
+            .container {
+                max-width: 960px; /* Ancho máximo del contenido principal */
+                margin: 0 auto; /* Centra el contenido principal horizontalmente */
+                padding: 20px; /* Espaciado interior para separar el contenido */
+                padding-bottom: 60px; /* Espaciado en la parte inferior para evitar que el footer cubra el contenido */
+                box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+            }
+
+            .footer-container {
+                width: 100%; /* Ancho completo */
+                position: absolute; /* Fijar el contenedor del footer */
+                bottom: 0; /* Alinear al fondo */
+                left: 0; /* Alinear a la izquierda */
+            }
+
+            .footer {
+            background-color: #2b3035; /* Azul similar al de DHL */
+            color: #aab4bf; /* Texto en color blanco para contrastar */
+            padding: 20px; /* Espaciado interior para separar el contenido */
+            text-align: center; /* Centrar el texto */
+            }
+
+            /* Estilos para los elementos del footer */
+            .footer-columns {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+            .footer-column {
+                flex: 1;
+                text-align: left;
+                padding: 0 20px;
+                margin-bottom: 30px;
+            }
+
+                /* Estilos para los encabezados */
+                .footer-column h3 {
+                color: #565f69;
+                font-size: 20px;
+                margin-bottom: 15px;
+                font-family: "Arial Narrow", Arial, sans-serif;
+                }
+
+                /* Estilos para los enlaces */
+                .footer-column a {
+                    display: block;
+                color: #aab4bf;
+                    text-decoration: none;
+                    margin-bottom: 10px;
+                }
+
+                    .footer-column a:hover {
+                        text-decoration: underline;
+                    }
+
+            /* Estilo para el logo */
+            .footer-column img {
+                width: 170px; /* Modifica el ancho del logo */
+                margin-bottom: 50px; /* Ajusta el margen inferior */
+                margin-right: 50px; /* Mueve el logo hacia la derecha */
+                /* Si quieres moverlo hacia la izquierda, puedes usar margin-left en lugar de margin-right */
+            }
+
+        .footer-top {
+            top: 50px; /* Alinear arriba y bajar 50px */
+            background-color: ; /* Azul similar al de DHL */
+            color: white; /* Texto en color blanco para contrastar */
+            padding: 20px; /* Espaciado interior para separar el contenido */
+            text-align: center; /* Centrar el texto */
+        }
+        </style>
+
+    <style>
+        /* Estilos personalizados para el footer superior */
+        .footer-top {
+            background-color: ; /* Color azul */
+            color: white; /* Texto en color blanco */
+        }
+    </style>
+
+
+
+    </head>
+@* 
+    Este el el footer superiror  *@
+<div class="footer-container footer-top">
+    <div class="footer" style="text-align: left;">
+        <img src="/IMG/GlobalExcel-1.png" alt="Logo DHL" style="width: 100px;">
+    </div>
+</div>
+<br />
+<br />
+<br />
+
+
+    <body>
+        <!-- Encabezado del formulario -->
+        <header class="form-header" style="text-align: left; margin-left: 50px; margin-top: 20px;">
+            <strong>
+                <div >
+                Ayúdanos a llenar la información de la persona que paga el seguro
+                </div>
+            </strong>
+        </header>
+    @using (Html.BeginForm("Add", "Vista2", FormMethod.Post, new { enctype = "multipart/form-data", id = "miFormulario" }))
+    {
+        <div class="container">
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="nombre"></label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                </div>
+                <!--fila 1 -->
+                <div class="form-group">
+                    <label for="apellido-paterno"></label>
+                    <input type="text" id="apellido-paterno" name="apellido-paterno" placeholder="Apellido Paterno">
+                </div>
+                <div class="form-group">
+                    <label for="apellido-materno"></label>
+                    <input type="text" id="apellido-materno" name="apellido-materno" placeholder=" Apellido Materno">
+                </div>
+                <!--fila 2 -->
+                <div class="form-group half-width">
+                    <label for="estado-civil" style="font-size: 13px; position: absolute; top: -10px;">Estado Civil:</label>
+                <select style="color: cornflowerblue;" id="estado-civil" name="estado-civil">
+                        <option value="soltero">Selecciona</option>
+                        <option value="soltero">Soltero</option>
+                        <option value="casado">Casado</option>
+                        <option value="divorciado">Divorciado</option>
+                        <option value="viudo">Viudo</option>
+                    </select>
+                </div>
+                <div class="form-group half-width">
+                    <label for="genero" style="font-size: 13px; position: absolute; top: -10px;">Género:</label>
+                <select style="color: cornflowerblue;" id="genero" name="genero">
+                        <option value="soltero">Selecciona</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <!--fila 3 -->
+                <div class="form-group">
+                    <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                    <div class="date-container">
+                        <input type="text" id="dia" name="dia" placeholder="Día" class="small-input">
+                        <select style="color: cornflowerblue;" id="mes" name="mes" class="small-input">
+                            <option value="">Mes</option>
+                            <option value="1">Enero</option>
+                            <option value="2">Febrero</option>
+                            <option value="3">Marzo</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Mayo</option>
+                            <option value="6">Junio</option>
+                            <option value="7">Julio</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Septiembre</option>
+                            <option value="10">Octubre</option>
+                            <option value="11">Noviembre</option>
+                            <option value="12">Diciembre</option>
+                        </select>
+                        <input type="text" id="anio" name="anio" placeholder="Año" class="small-input">
+                        <!-- Campo oculto para almacenar la fecha combinada -->
+                        <input type="hidden" id="fecha-nacimiento" name="fecha-nacimiento">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="entidad-nacimiento">Entidad de Nacimiento:</label>
+                <select style="color: cornflowerblue;" id="entidad-nacimiento" name="entidad-nacimiento" class="input-text">
+                        <option value="">Selecciona una entidad</option>
+                        <option value="Aguascalientes">Aguascalientes</option>
+                        <option value="Baja California">Baja California</option>
+                        <option value="Baja California Sur">Baja California Sur</option>
+                        <option value="Campeche">Campeche</option>
+                        <option value="Chiapas">Chiapas</option>
+                        <option value="Chihuahua">Chihuahua</option>
+                        <option value="Ciudad de México">Ciudad de México</option>
+                        <option value="Coahuila">Coahuila</option>
+                        <option value="Colima">Colima</option>
+                        <option value="Durango">Durango</option>
+                        <option value="Guanajuato">Guanajuato</option>
+                        <option value="Guerrero">Guerrero</option>
+                        <option value="Hidalgo">Hidalgo</option>
+                        <option value="Jalisco">Jalisco</option>
+                        <option value="Estado de México">Estado de México</option>
+                        <option value="Michoacán">Michoacán</option>
+                        <option value="Morelos">Morelos</option>
+                        <option value="Nayarit">Nayarit</option>
+                        <option value="Nuevo León">Nuevo León</option>
+                        <option value="Oaxaca">Oaxaca</option>
+                        <option value="Puebla">Puebla</option>
+                        <option value="Querétaro">Querétaro</option>
+                        <option value="Quintana Roo">Quintana Roo</option>
+                        <option value="San Luis Potosí">San Luis Potosí</option>
+                        <option value="Sinaloa">Sinaloa</option>
+                        <option value="Sonora">Sonora</option>
+                        <option value="Tabasco">Tabasco</option>
+                        <option value="Tamaulipas">Tamaulipas</option>
+                        <option value="Tlaxcala">Tlaxcala</option>
+                        <option value="Veracruz">Veracruz</option>
+                        <option value="Yucatán">Yucatán</option>
+                        <option value="Zacatecas">Zacatecas</option>
+                    </select>
+                </div>
+
+
+                <!-- Fila 4 -->
+                <div class="form-group">
+                    <label for="curp"></label>
+                    <input type="text" id="curp" name="curp" placeholder="CURP">
+                </div>
+                <div class="form-group">
+                    <label for="rfc"></label>
+                    <input type="text" id="rfc" name="rfc" placeholder="RFC">
+                </div>
+
+                <!-- Fila 5 -->
+                <div class="form-group">
+                    <label for="telefono"></label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Teléfono">
+                </div>
+                <div class="form-group">
+                    <label for="correo"></label>
+                    <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" >
+                </div>
+
+                <div class="form-group full-width" style="right: -380px;">
+                    <input type="submit" onclick="enviarFormulario()" value="Continuar">
+                </div>
+            </div>
+        </div>
+    }
+    </body> 
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+<div class="footer-container">
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h3></h3>
+                <img src="/IMG/GlobalExcel-1.png" alt="Logo DHL"
+                     style="width: 160px;">
+            </div>
+            <div class="footer-column" style="flex: 1;"></div>
+            <!-- Espacio en blanco para empujar los elementos hacia la derecha -->
+            <div class="footer-column" style="text-align: left;">
+                <h3>Acerca de </h3>
+                <a href="#">Sobre nosotros</a>
+                <a href="#">Nuestra historia</a>
+                <a href="#">Trabaja con nosotros</a>
+                <a href="#">Sostenibilidad</a>
+            </div>
+            <div class="footer-column" style="text-align: left;">
+                <h3>Recursos</h3>
+                <a href="#">Centro de ayuda</a>
+                <a href="#">Guías de envío</a>
+                <a href="#">Preguntas frecuentes</a>
+                <a href="#">Calculadora de tarifas</a>
+            </div>
+            <div class="footer-column" style="text-align: left;">
+                <h3>Contacto</h3>
+                <p> Express México</p>
+                <p>Teléfono: 01 800 765 6345</p>
+                <p>Email: info@dhl.com</p>
+                <p>Dirección: Av. 1321, México, cdmx</p>
+                <button class="round-button">Botón</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </html>
+
+
+
+
+ <script>
+    function enviarFormulario() {
+        // Combina la fecha de nacimiento antes de enviar el formulario
+        combinarFecha();
+
+        var formData = {
+            nombre: $("#nombre").val(),
+            apellidoPaterno: $("#apellido-paterno").val(),
+            apellidoMaterno: $("#apellido-materno").val(),
+            estadoCivil: $("#estado-civil").val(),
+            genero: $("#genero").val(),
+            fechaNacimiento: $("#fecha-nacimiento").val(), // Utiliza el campo combinado para la fecha de nacimiento
+            entidadNacimiento: $("#entidad-nacimiento").val(),
+            curp: $("#curp").val(),
+            rfc: $("#rfc").val(),
+            telefono: $("#telefono").val(),
+            correo: $("#correo").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/Vista2/Add2",
+            data: JSON.stringify(formData), // Convertir formData a JSON
+            contentType: "application/json", // Especificar tipo de medio como JSON
+            dataType: "json",
+        })
+            .done(function (data) {
+                // Manejar la respuesta de la API si es necesario
+                console.log(data);
+                // Borrar los valores de los campos del formulario
+                $("#nombre").val("");
+                $("#apellido-paterno").val("");
+                $("#apellido-materno").val("");
+                $("#estado-civil").val("");
+                $("#genero").val("");
+                $("#dia").val("");
+                $("#mes").val("");
+                $("#anio").val("");
+                $("#entidad-nacimiento").val("");
+                $("#curp").val("");
+                $("#rfc").val("");
+                $("#telefono").val("");
+                $("#correo").val("");
+            })
+            .fail(function (data) {
+                // Manejar errores si la solicitud falla
+                console.log(data);
+            });
+    }
+
+    // Función para combinar los valores de día, mes y año en un solo campo de entrada oculto
+    function combinarFecha() {
+        var dia = document.getElementById('dia').value;
+        var mes = document.getElementById('mes').value;
+        var anio = document.getElementById('anio').value;
+
+        // Formatear los valores de día y mes para que tengan siempre dos dígitos
+        dia = ("0" + dia).slice(-2);
+        mes = ("0" + mes).slice(-2);
+
+        // Combina los valores en el formato deseado
+        var fechaNacimiento = anio + "-" + mes + "-" + dia;
+
+        // Asignar el valor combinado al campo de entrada oculto
+        document.getElementById('fecha-nacimiento').value = fechaNacimiento;
+    }
+
+    // Asociar la función combinarFecha al evento change de los campos de entrada de día, mes y año
+    document.getElementById('dia').addEventListener('change', combinarFecha);
+    document.getElementById('mes').addEventListener('change', combinarFecha);
+    document.getElementById('anio').addEventListener('change', combinarFecha);
+</script>
+
+

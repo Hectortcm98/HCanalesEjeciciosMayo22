@@ -1,0 +1,243 @@
+﻿@{
+    ViewData["Title"] = "Vista01";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista01</title>
+    <style>
+        body {
+            background-image: url('https://s0.smartresize.com/wallpaper/674/37/HD-wallpaper-fun-white-blue-colors-gray-background-sea-simple-edge-gradient-sky.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+
+    <style>
+        /* Estilos personalizados */
+        body {
+            margin: 0; /* Elimina el margen predeterminado del body */
+            padding: 0; /* Elimina el relleno predeterminado del body */
+            overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+        }
+
+        .container {
+            max-width: 960px; /* Ancho máximo del contenido principal */
+            margin: 0 auto; /* Centra el contenido principal horizontalmente */
+            padding: 20px; /* Espaciado interior para separar el contenido */
+            box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+        }
+
+        .footer-container {
+            width: 100%; /* Ancho completo */
+            position: absolute; /* Fijar el contenedor del footer */
+            left: 0; /* Alinear a la izquierda */
+        }
+
+
+        .footer-bottom {
+            bottom: 0; /* Alinear abajo */
+            background-color: deepskyblue; /* Color gris oscuro */
+            color: #aab4bf; /* Texto en color gris claro */
+            padding: 20px; /* Espaciado interior para separar el contenido */
+            text-align: center; /* Centrar el texto */
+        }
+    </style>
+
+</head>
+
+<header>
+    <div style="float: left;">
+        <img src="/IMG/Logo-removebg-preview.PNG" alt="Logo" style="max-width: 150px; margin-right:113px">
+    </div>
+    <div style="text-align:right;">
+        <strong>
+            <a href="" style="color: mediumblue; margin-right: 20px; text-decoration: none;">¿Para quién lo hacemos?</a>
+            <a href="@Url.Action("Privacy", "Home")" style="color: mediumblue; margin-right: 20px; text-decoration: none;">Iniciativas</a>
+            <a href="@Url.Action("Privacy", "Home")" style="color: mediumblue; margin-right: 20px; text-decoration: none;">Miembros</a>
+            <a href="@Url.Action("Privacy", "Home")" style="color: mediumblue; margin-right: 20px; text-decoration: none;">Eventos</a>
+            <a href="@Url.Action("Privacy", "Home")" style="color: mediumblue; margin-right: -80px; text-decoration: none;">Registros</a>
+        </strong>
+    </div>
+</header>
+
+
+    <body>
+
+    @using (Html.BeginForm("Add", "Vista1", FormMethod.Post, new { enctype = "multipart/form-data", id = "miFormulario" }))
+    {
+        <!-- Contenido principal -->
+        <div style="margin-left: 400px; margin-top: 180px;">
+            <h2 style="margin-left: 135px; font-size: 13px;"><strong>Captura los siguientes datos</strong></h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            <label for="nombre"></label>
+                            <input type="text" id="nombre" name="nombre" class="form-control" style="border: none; border-bottom: 1px solid black; background-color: transparent; width: 180%;" placeholder="Nombre:">
+                        </div>
+                        <div class="col" style="margin-left: 70px;">
+                            <label for="telefono"></label>
+                            <input type="text" id="telefono" name="telefono" class="form-control" style="border: none; border-bottom: 1px solid black; background-color: transparent; width: 180%;" placeholder="Teléfono:">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="email"></label>
+                            <input type="text" id="email" name="email" class="form-control" style="border: none; border-bottom: 1px solid black; background-color: transparent;  width: 180%;" placeholder="Email:">
+                        </div>
+                        <div class="col" style="margin-left: 70px;">
+                            <label for="empresa"></label>
+                            <input type="text" id="empresa" name="empresa" class="form-control" style="border: none; border-bottom: 1px solid black; background-color: transparent; width: 180%;" placeholder="Empresa:">
+                        </div>
+                    </div>
+                    <div class="row mt-3" style="text-align:center">
+                        <div class="col">
+                            <button type="button" onclick="enviarFormulario()" class="btn btn-primary" style="border-radius: 50px; padding-left: 30px; padding-right: 30px; background-color:mediumblue; width:130px; height: 35px; margin-left:52px"><strong>Guardar</strong></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+        <!-- Texto flotante 1 -->
+        <div style="position: relative; left: 130px; top: -250px; max-width: 200px; display: inline-block; font-family: 'Cooper Black', sans-serif;">
+            <p style="font-size:30px; margin: 0; opacity: 0.7;"><strong>Sé parte de</strong></p>
+            <p style="font-size:30px; margin: 0; opacity: 0.7;"><strong>nuestra </strong></p>
+            <p style="font-size:30px; margin: 0; opacity: 0.7;"><strong>comunidad</strong></p>
+        </div>
+
+        <!-- Texto flotante 2 -->
+        <div style="position: relative; left: -40px; top: -10px; max-width: 200px; display: inline-block; font-family: 'Cooper Black', sans-serif;">
+            <p style="font-size:25px; margin: 0; opacity: 0.7;"><strong>Marketing y</strong></p>
+            <p style="font-size:25px; margin: 0; opacity: 0.7;"><strong>comunicación </strong></p>
+        </div>
+
+        <!-- Texto flotante 3 -->
+        <div style="position: relative; left: -220px; top: 40px; max-width: 200px; display: inline-block;">
+            <p style="font-size:10px; margin: 0; opacity: 0.7;">Para información sobre alianzas, eventos y prensa por favos contactar a:</p>
+        </div>
+      
+
+        <!-- Link de bootstrap para importa los iconono de social media -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    </body>
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<!-- Contenedor del Footer inferior -->
+<footer class="footer-container footer-bottom">
+    <!-- Footer inferior -->
+    <div class="footer" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; text-align: center; width: 100%; margin: 0 auto;">
+        <div style="text-align: center;">
+            <h3 style="font-size:20px;  color: white;"><strong>Síguenos</strong></h3>
+            <ul style="list-style-type: none; padding: 0; text-align: center; font-size:15px; margin: 11px 0;">
+                <li style="display: inline-block; margin-top: 10px;"><a href="#"><i class="bi bi-linkedin" style="font-size: 30px; color: white;"></i></a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 style="font-size:20px;  text-align: left;  color: white;"><strong>AHM</strong></h3>
+            <ul style="list-style-type: none; padding: 0; text-align: left; font-size:15px; margin: 11px 0;">
+                <li><a href="#" style="text-decoration: none; color: white; ">Comunidad</a></li>
+                <br />
+                <li><a href="#" style="text-decoration: none; color: white; ">Sobre nosotros</a></li>
+                <br />
+            </ul>
+        </div>
+
+        <div>
+            <h3 style="font-size:20px;  color: white;"><strong>¿Para quién lo hacemos?</strong></h3>
+            <ul style="list-style-type: none; padding: 0; text-align: left; font-size:15px; margin: 11px 0;">
+                <li><a href="#" style="text-decoration: none; color: white; ">Nuestra misión</a></li>
+                <br />
+                <li><a href="#" style="text-decoration: none; color: white; ">Objetivos</a></li>
+                <br />
+                <li><a href="#" style="text-decoration: none; color: white;">Visión</a></li>
+                <br />
+                <li><a href="#" style="text-decoration: none; color: white;">Valores</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 style="font-size:20px;  color: white;"><strong>Iniciativas</strong></h3>
+            <ul style="list-style-type: none; padding: 0; text-align: left; font-size:15px; margin: 11px 0; margin-left: 72px;">
+                <strong>
+                <li><a href="#" style="text-decoration: none; color: white; ">Mienbros</a></li>
+                <br />
+                <li><a href="#" style="text-decoration: none; color: white; ">Registros</a></li>
+                <br />
+                <li><a href="#" style="text-decoration: none; color: white;">Eventos</a></li>
+                <br />
+                <li><a href="#" style="text-decoration: none; color: white;">Aviso de privacidad</a></li>
+                </strong>
+            </ul>
+        </div>
+    </div>
+</footer>
+</html>
+
+    
+
+    <script>
+    function enviarFormulario() {
+        var formData = {
+            nombre: $("#nombre").val(),
+            telefono: $("#telefono").val(),
+            email: $("#email").val(),
+            empresa: $("#empresa").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/api/Vista1/Add",
+            data: JSON.stringify(formData), // Convertir formData a JSON
+            contentType: "application/json", // Establecer el tipo de contenido a application/json
+            dataType: "json",
+            encode: true
+        })
+
+            .done(function (data) {
+                // Manejar la respuesta de la API si es necesario
+                console.log(data);
+                // Borrar los valores de los campos del formulario
+                $("#nombre").val("");
+                $("#telefono").val("");
+                $("#email").val("");
+                $("#empresa").val("");
+            })
+            .fail(function (data) {
+                // Manejar errores si la solicitud falla
+                console.log(data);
+            });
+    }
+
+</script>
+
+     
